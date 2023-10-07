@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <sstream> // Include this header for stringstream
 
 class Account {
 private:
@@ -20,7 +21,9 @@ public:
     }
 
     std::string toString() const {
-        return "Account[number=" + std::to_string(number) + ",balance=$" + std::to_string(balance) + "]";
+        std::ostringstream oss;
+        oss << "Account[number=" << number << ",balance=$" << std::fixed << std::setprecision(2) << balance << "]";
+        return oss.str();
     }
 
     void credit(double amount) {
