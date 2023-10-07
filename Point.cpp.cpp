@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <sstream>  // Include this header for stringstream
 #include <string>
 
 class Point {
@@ -56,7 +57,9 @@ public:
     }
 
     std::string toString() const {
-        return "(" + std::to_string(x) + "," + std::to_string(y) + ")";
+        std::stringstream ss;
+        ss << "(" << x << "," << y << ")";
+        return ss.str();
     }
 };
 
